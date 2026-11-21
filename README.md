@@ -23,6 +23,7 @@ Fase de definición de la idea. Esta documentación recoge el concepto, los proc
 | 9 | [Puntos por definir](docs/09-pendientes.md) | Decisiones abiertas consolidadas |
 | 10 | [Stack técnico](docs/10-stack-tecnico.md) | Axum, PostgreSQL + SQLx, Redis, autenticación y decisiones de diseño |
 | 11 | [Arquitectura de la plataforma](docs/11-arquitectura.md) | Monolito modular, DDD + hexagonal, contextos, estructura del workspace, datos y eventos |
+| 12 | [Frontend](docs/12-frontend.md) | Monorepo React + Tailwind, apps (backoffice, POS, warehouse, storefront), sistema de diseño |
 
 ## Resumen en un minuto
 

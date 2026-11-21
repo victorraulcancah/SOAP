@@ -1,6 +1,6 @@
 # Stack técnico
 
-Recomendación inicial de tecnología para el backend. El frontend y la app móvil se deciden más adelante.
+Recomendación inicial de tecnología para el backend. El frontend se describe en [Frontend](12-frontend.md).
 
 > **Estado:** recomendación, aún no es una decisión cerrada. Ver [Puntos por definir](09-pendientes.md).
 
@@ -62,4 +62,4 @@ Un WMS tiene consultas de stock, kardex y reportes que conviene escribir en SQL.
 
 - **Arquitectura general:** ya recomendada en [Arquitectura de la plataforma](11-arquitectura.md).
 - **Modelo de datos** de los módulos de la primera etapa (ver [hoja de ruta](08-modulos-y-roadmap.md)).
-- Decidir el frontend y la app móvil.
+- Frontend y app móvil: ya recomendados en [Frontend](12-frontend.md).

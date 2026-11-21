@@ -43,4 +43,6 @@ Decisiones abiertas recogidas de la idea original, agrupadas por tema. Conviene 
 - [ ] Modelo de datos del Inventario y de los módulos de la primera etapa.
 - [ ] Alcance de la plataforma completa (POS, ecommerce, ERP, RRHH, TMS, SCM, CRM, OAS) y su orden frente al WMS.
 - [ ] Confirmar que "DNS" en la conversación original significa DMS (gestión documental).
-- [ ] Frontend y app móvil (incluido el funcionamiento sin señal).
+- [ ] Confirmar el frontend recomendado: monorepo React + Tailwind con sistema de diseño compartido (ver [Frontend](12-frontend.md)).
+- [ ] Catálogo de componentes del sistema de diseño: qué piezas construir primero.
+- [ ] Diseño de la sincronización sin conexión para el POS y la app de almacén (PWA con base local y cola).
