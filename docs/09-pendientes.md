@@ -38,6 +38,9 @@ Decisiones abiertas recogidas de la idea original, agrupadas por tema. Conviene 
 
 ## Técnico
 - [ ] Confirmar Axum frente a Actix-web (ver [Stack técnico](10-stack-tecnico.md)).
-- [ ] Arquitectura general: monolito modular o servicios; multiempresa y multi-almacén.
-- [ ] Modelo de datos de los módulos de la primera etapa.
+- [ ] Confirmar la arquitectura recomendada: monolito modular con DDD y hexagonal (ver [Arquitectura](11-arquitectura.md)).
+- [ ] Mapa de contextos de la plataforma.
+- [ ] Modelo de datos del Inventario y de los módulos de la primera etapa.
+- [ ] Alcance de la plataforma completa (POS, ecommerce, ERP, RRHH, TMS, SCM, CRM, OAS) y su orden frente al WMS.
+- [ ] Confirmar que "DNS" en la conversación original significa DMS (gestión documental).
 - [ ] Frontend y app móvil (incluido el funcionamiento sin señal).

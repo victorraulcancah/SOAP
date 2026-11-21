@@ -6,7 +6,7 @@ Sistema de gestión de almacenes (WMS) que, además de controlar qué hay y dón
 
 ## Estado del proyecto
 
-Fase de definición de la idea. Esta documentación recoge el concepto, los procesos, los roles, los módulos y los puntos aún abiertos. Todavía no hay código. El stack técnico recomendado (Rust + Axum + PostgreSQL + Redis) está en [Stack técnico](docs/10-stack-tecnico.md).
+Fase de definición de la idea. Esta documentación recoge el concepto, los procesos, los roles, los módulos y los puntos aún abiertos. Todavía no hay código. El stack técnico recomendado (Rust + Axum + PostgreSQL + Redis) está en [Stack técnico](docs/10-stack-tecnico.md) y la arquitectura (monolito modular, parte de una plataforma empresarial mayor) en [Arquitectura](docs/11-arquitectura.md).
 
 ## Índice de la documentación
 
@@ -22,6 +22,7 @@ Fase de definición de la idea. Esta documentación recoge el concepto, los proc
 | 8 | [Módulos y hoja de ruta](docs/08-modulos-y-roadmap.md) | Los módulos del sistema, matriz de uso por rol, orden de construcción |
 | 9 | [Puntos por definir](docs/09-pendientes.md) | Decisiones abiertas consolidadas |
 | 10 | [Stack técnico](docs/10-stack-tecnico.md) | Axum, PostgreSQL + SQLx, Redis, autenticación y decisiones de diseño |
+| 11 | [Arquitectura de la plataforma](docs/11-arquitectura.md) | Monolito modular, DDD + hexagonal, contextos, estructura del workspace, datos y eventos |
 
 ## Resumen en un minuto
 

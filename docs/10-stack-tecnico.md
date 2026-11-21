@@ -60,6 +60,6 @@ Un WMS tiene consultas de stock, kardex y reportes que conviene escribir en SQL.
 
 ## Siguientes pasos posibles
 
-- **Arquitectura general:** monolito modular frente a servicios, multiempresa y multi-almacén.
+- **Arquitectura general:** ya recomendada en [Arquitectura de la plataforma](11-arquitectura.md).
 - **Modelo de datos** de los módulos de la primera etapa (ver [hoja de ruta](08-modulos-y-roadmap.md)).
 - Decidir el frontend y la app móvil.
