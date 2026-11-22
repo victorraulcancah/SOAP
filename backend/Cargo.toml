@@ -1,0 +1,58 @@
+[workspace]
+resolver = "3"
+members = ["apps/*", "platform/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "UNLICENSED"
+publish = false
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }
+
+[workspace.dependencies]
+# ---- Crates internos: plataforma ----
+shared-kernel = { path = "platform/shared-kernel" }
+platform-identity = { path = "platform/identity" }
+platform-audit = { path = "platform/audit" }
+platform-outbox = { path = "platform/outbox-events" }
+platform-workflow = { path = "platform/workflow-engine" }
+
+# ---- Servidor web ----
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "time", "sync"] }
+axum = { version = "0.8", features = ["ws", "macros"] }
+tower = "0.5"
+tower-http = { version = "0.6", features = ["trace", "cors", "compression-gzip", "request-id", "timeout"] }
+
+# ---- Datos ----
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio", "tls-rustls", "postgres", "macros", "migrate", "uuid", "time", "json", "rust_decimal"] }
+redis = { version = "0.27", features = ["tokio-comp", "connection-manager", "streams"] }
+
+# ---- Serialización y tipos ----
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v7", "serde"] }
+time = { version = "0.3", features = ["serde", "macros"] }
+rust_decimal = { version = "1", features = ["serde-with-str"] }
+
+# ---- Validación, errores y contrato ----
+validator = { version = "0.19", features = ["derive"] }
+thiserror = "2"
+anyhow = "1"
+async-trait = "0.1"
+utoipa = { version = "5", features = ["axum_extras", "uuid", "time"] }
+utoipa-axum = "0.2"
+
+# ---- Autenticación ----
+argon2 = "0.5"
+jsonwebtoken = "9"
+
+# ---- Observabilidad y configuración ----
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+dotenvy = "0.15"

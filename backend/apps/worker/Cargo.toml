@@ -1,0 +1,20 @@
+[package]
+name = "worker"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+shared-kernel.workspace = true
+platform-outbox.workspace = true
+tokio.workspace = true
+sqlx.workspace = true
+redis.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+dotenvy.workspace = true

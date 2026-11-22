@@ -1,0 +1,5 @@
+{
+  "extends": "@soap/config/tsconfig.base.json",
+  "compilerOptions": { "types": ["vite/client"] },
+  "include": ["src", "vite.config.ts"]
+}
