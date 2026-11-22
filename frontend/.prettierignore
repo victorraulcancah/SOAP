@@ -1,3 +1,6 @@
 node_modules
 dist
 pnpm-lock.yaml
+# Copias del frontend de Ecommerce: se mantienen tal cual el origen
+packages/ui/src
+packages/tokens/*.css

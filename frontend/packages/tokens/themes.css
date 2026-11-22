@@ -1,0 +1,208 @@
+/* =========================================================
+   themes.css — sistema de color temático.
+
+   Cada modulo tiene un par de colores VECINOS (analogos), por
+   ejemplo naranja rojizo -> ambar. De los tres colores de
+   entrada salen las demas tonalidades con color-mix. Ningun
+   componente usa colores fijos: leen variables, asi que
+   cambiar de modulo es cambiar un atributo:
+
+     <div data-sys="inv"> ... </div>
+
+   Entrada:  --grad-start  color principal (el de accion)
+             --grad-end    segundo color del degradado (vecino)
+             --surface     tinte suave del tema (solo deriva --t-50). El fondo
+                           de las vistas NO lo usa: es siempre gris (index.css)
+   Salida:   --t-950..--t-50, --accent*, --grad, --grad-tile
+   ========================================================= */
+
+/* ---- 1. Un tema = 3 colores de entrada ----
+   grad-end es OTRO color de la misma familia (azul -> cian, verde -> lima...):
+   asi un icono o boton se ve con mas de un color, no con un solo tono. */
+:root,
+[data-sys='brand'],
+[data-sys='fact'] {
+  --grad-start: #2563eb;
+  --grad-end: #06b6d4;
+  --surface: #eff6ff;
+}
+
+[data-sys='maestros'] {
+  --grad-start: #14497f;
+  --grad-end: #0d9488;
+  --surface: #eef3f9;
+}
+
+[data-sys='catalogo'] {
+  --grad-start: #65a30d;
+  --grad-end: #eab308;
+  --surface: #f7fee7;
+}
+
+[data-sys='inv'] {
+  --grad-start: #16a34a;
+  --grad-end: #84cc16;
+  --surface: #ecfdf5;
+}
+
+[data-sys='pos'] {
+  --grad-start: #ea580c;
+  --grad-end: #fbbf24;
+  --surface: #fff7ed;
+}
+
+[data-sys='compras'] {
+  --grad-start: #7c3aed;
+  --grad-end: #c026d3;
+  --surface: #f5f3ff;
+}
+
+[data-sys='tms'] {
+  --grad-start: #0891b2;
+  --grad-end: #2563eb;
+  --surface: #ecfeff;
+}
+
+[data-sys='dms'],
+[data-sys='ventas'] {
+  --grad-start: #db2777;
+  --grad-end: #f97316;
+  --surface: #fdf2f8;
+}
+
+[data-sys='promos'] {
+  --grad-start: #c026d3;
+  --grad-end: #7c3aed;
+  --surface: #fdf4ff;
+}
+
+[data-sys='tesoreria'] {
+  --grad-start: #0284c7;
+  --grad-end: #14b8a6;
+  --surface: #f0f9ff;
+}
+
+[data-sys='finanzas'] {
+  --grad-start: #0d9488;
+  --grad-end: #22c55e;
+  --surface: #f0fdfa;
+}
+
+[data-sys='rrhh'] {
+  --grad-start: #d97706;
+  --grad-end: #dc2626;
+  --surface: #fffbeb;
+}
+
+[data-sys='online'] {
+  --grad-start: #e11d48;
+  --grad-end: #f97316;
+  --surface: #fff1f2;
+}
+
+[data-sys='dashboard'] {
+  --grad-start: #4f46e5;
+  --grad-end: #0ea5e9;
+  --surface: #eef2ff;
+}
+
+[data-sys='config'] {
+  --grad-start: #6366f1;
+  --grad-end: #ec4899;
+  --surface: #f1f2fe;
+}
+
+/* ---- 2. Escala derivada (de oscuro a claro) ----
+   Se declara en el MISMO elemento que el tema: una variable que usa var()
+   se resuelve donde se declara, asi que si esto viviera solo en :root, los
+   modulos no recalcularian la escala con sus propios colores. */
+:root,
+[data-sys] {
+  /* degradados: del color principal al segundo color del tema */
+  --grad: linear-gradient(90deg, var(--grad-start), var(--grad-end));
+  --grad-tile: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+
+  --t-950: color-mix(in oklab, color-mix(in oklab, var(--grad-start) 90%, var(--grad-end)), black 84%);
+  --t-900: color-mix(in oklab, color-mix(in oklab, var(--grad-start) 80%, var(--grad-end)), black 74%);
+  --t-800: color-mix(in oklab, var(--grad-start), black 64%);
+  --t-700: color-mix(in oklab, var(--grad-start), black 46%);
+  --t-600: color-mix(in oklab, var(--grad-start), black 24%); /* color de accion */
+  --t-500: color-mix(in oklab, var(--grad-start), black 8%);
+  --t-400: color-mix(in oklab, var(--grad-start) 70%, white);
+  --t-300: color-mix(in oklab, var(--grad-end) 34%, white);
+  --t-200: color-mix(in oklab, var(--grad-start) 12%, white);
+  --t-50: color-mix(in oklab, var(--surface) 45%, white);
+
+  /* letras: los mismos dos colores, un poco mas oscuros para que se lean */
+  --grad-text: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--grad-start), black 10%),
+    color-mix(in oklab, var(--grad-end), black 22%)
+  );
+
+  /* trazo de los iconos: los DOS colores del tema (apenas oscurecidos para
+     leerse sobre blanco) y su mezcla; sin oscurecerlos mucho, o se verian
+     como un solo tono */
+  --icon-a: color-mix(in oklab, var(--grad-start), black 6%);
+  --icon-m: color-mix(in oklab, var(--grad-start) 50%, var(--grad-end));
+  --icon-b: color-mix(in oklab, var(--grad-end), black 8%);
+
+  /* roles semanticos que usan los componentes */
+  --accent: var(--t-600);
+  --accent-hover: var(--t-700);
+  --accent-ink: var(--t-700); /* texto sobre fondo suave */
+  --accent-on: #ffffff; /* texto sobre el color de accion */
+  --accent-soft: color-mix(in oklab, var(--t-600) 10%, white); /* fondo suave */
+  --accent-ring: color-mix(in oklab, var(--t-600) 25%, transparent); /* foco */
+}
+
+/* ---- 3. Estados: no cambian con el tema ---- */
+:root {
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --info: #2563eb;
+}
+
+/* ---- 4. Utilidades sobre el color del modulo activo ---- */
+@utility sys-bg {
+  background-color: var(--accent);
+  color: var(--accent-on);
+}
+
+@utility sys-gradient {
+  background-image: var(--grad-tile);
+  color: var(--accent-on);
+}
+
+@utility sys-text {
+  color: var(--accent-ink);
+}
+
+/* Letras con los dos colores del tema (degradado recortado al texto).
+   Va sobre un <span> en linea: asi el degradado abarca solo el texto. */
+@utility text-grad {
+  background-image: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility sys-ring {
+  &:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-ring);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
